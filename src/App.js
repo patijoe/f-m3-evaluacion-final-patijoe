@@ -16,6 +16,7 @@ class App extends React.Component {
     }
 
     this.handleFilterName = this.handleFilterName.bind(this);
+    this.handleResetFilter = this.handleResetFilter.bind(this);
   }
 
   componentDidMount() {
@@ -29,6 +30,8 @@ class App extends React.Component {
         return {...item, id: index}
       });
 
+      
+
     this.setState({
       characters: newCharacters
     })
@@ -39,10 +42,21 @@ class App extends React.Component {
 
   handleFilterName(event){
     const valueName = event.currentTarget.value;
+    // const valueNameUpper = valueName.toUpperCase();
 
     this.setState ({
       filterName: valueName
     })
+  }
+
+  handleResetFilter() {
+    this.setState({
+      filterName: ''
+    })
+  }
+
+  forceUpdate() {
+
   }
 
   render() {
@@ -69,6 +83,8 @@ class App extends React.Component {
           render = {(routerProps) => (
             <Details 
               match = {routerProps.match}
+              characters = {characters}
+              handleResetFilter = {this.handleResetFilter}
             />
           )}
         />

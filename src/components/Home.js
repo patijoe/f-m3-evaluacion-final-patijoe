@@ -1,6 +1,7 @@
 import React from 'react';
 import Filter from './Filter';
 import {Link} from 'react-router-dom';
+import './Home.scss';
 
 class Home extends React.Component {
 
@@ -10,9 +11,9 @@ class Home extends React.Component {
 
     return(
 
-      <div className="App">
+      <div className="home">
 
-        <Filter handleFilterName={handleFilterName}/>
+        <Filter className="filter__name" handleFilterName={handleFilterName}/>
 
         <ul className="characters__list">
           {characters
@@ -21,11 +22,9 @@ class Home extends React.Component {
             return(
               <li className="user__item" key={item.id}>
                 <Link to={`/character/${item.id}`}>
-                  <div className="item__card">
                     <img src={item.image} alt={`imagen de ${item.name}`} className="item__img"/>
                     <h2 className="item__name">{item.name}</h2>
                     <small className="item__house">{item.house}</small>
-                  </div>
                 </Link>  
               </li>
             );
