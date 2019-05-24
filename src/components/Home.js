@@ -13,18 +13,21 @@ class Home extends React.Component {
 
       <div className="home">
 
-        <Filter className="filter__name" handleFilterName={handleFilterName}/>
+        <Filter className="filter" handleFilterName={handleFilterName}/>
 
         <ul className="characters__list">
           {characters
-          .filter(item => item.name.includes(filterName))
+          .filter(item => item.name.toUpperCase().includes(filterName.toUpperCase()))
           .map(item => {
             return(
               <li className="user__item" key={item.id}>
-                <Link to={`/character/${item.id}`}>
-                    <img src={item.image} alt={`imagen de ${item.name}`} className="item__img"/>
-                    <h2 className="item__name">{item.name}</h2>
-                    <small className="item__house">{item.house}</small>
+                <Link className="home__link" to={`/character/${item.id}`}>
+                    <div className="img__container" style={{backgroundImage: `url(${item.image})`}}></div>
+                    
+                    <div className="info__container">
+                      <h2 className="item__name">{item.name}</h2>
+                      <small className="item__house">{item.house}</small>
+                    </div>
                 </Link>  
               </li>
             );

@@ -1,19 +1,48 @@
 .home {
-  display: flex;
-  flex-wrap: wrap;
+  height: 100vh;
+  background-color: orange;
 }
 
-.filter__name {
+.characters__list {
+  list-style: none;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  background-color: orange
 }
 
 .user__item {
-  height: 300px;
-  width: 230px;
+  height: 435px;
+  width: 210px;
+  margin: 30px;
+  border: 10px solid grey;
+  border-radius: 10px;
+  background-color: aliceblue;
 }
 
-.item__img {
-  height: 150px;
+.img__container {
+  height: 300px;
+  width: 210px;
+  background-size: cover;
+  background-position: center;
+}
+
+.home__link {
+  text-decoration: none;
+}
+
+.info__container {
+  text-align: center;
+}
+
+.item__name {
+padding-left: 15px;
+color: gray;
+}
+
+.item__house {
+  padding: 0 0 15 px15px;
+  color: gray;
 }
