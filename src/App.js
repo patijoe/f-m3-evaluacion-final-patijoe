@@ -22,18 +22,31 @@ class App extends React.Component {
         return {...item, id: index}
       });
 
-        this.setState({
-          characters: newCharacters
-        })
+    this.setState({
+      characters: newCharacters
+    })
       
       console.log('**', newCharacters)
     })
   }
 
   render() {
+
+    const {characters} = this.state;
+
     return (
       <div className="App">
-        'vamos!'
+        <ul className="characters__list">
+          {characters.map(item => {
+            return(
+              <li className="user__item" key={item.id}>
+                <img src={item.image} alt={`imagen de ${item.name}`} className="item__img"/>
+                <h2 className="item__name">{item.name}</h2>
+                <small className="item__house">{item.house}</small>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
