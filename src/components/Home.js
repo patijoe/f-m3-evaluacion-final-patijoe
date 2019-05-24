@@ -1,4 +1,6 @@
 import React from 'react';
+import Filter from './Filter';
+import {Link} from 'react-router-dom';
 
 class Home extends React.Component {
 
@@ -10,8 +12,7 @@ class Home extends React.Component {
 
       <div className="App">
 
-        <label htmlFor="filter_name">Busca tu personaje preferido por nombre</label>
-        <input id="filter_name" type="text" className="filter__name" onChange={handleFilterName} />
+        <Filter handleFilterName={handleFilterName}/>
 
         <ul className="characters__list">
           {characters
@@ -19,9 +20,13 @@ class Home extends React.Component {
           .map(item => {
             return(
               <li className="user__item" key={item.id}>
-                <img src={item.image} alt={`imagen de ${item.name}`} className="item__img"/>
-                <h2 className="item__name">{item.name}</h2>
-                <small className="item__house">{item.house}</small>
+                <Link to={`/character/${item.id}`}>
+                  <div className="item__card">
+                    <img src={item.image} alt={`imagen de ${item.name}`} className="item__img"/>
+                    <h2 className="item__name">{item.name}</h2>
+                    <small className="item__house">{item.house}</small>
+                  </div>
+                </Link>  
               </li>
             );
           })}

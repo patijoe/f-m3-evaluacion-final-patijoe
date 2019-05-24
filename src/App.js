@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import {petition} from './services/Petition';
 import Home from './components/Home';
+import Details from './components/Details';
+import {Switch, Route} from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -48,11 +50,32 @@ class App extends React.Component {
     const {characters, filterName} = this.state;
 
     return (
-      <Home 
-        characters = {characters}
-        filterName = {filterName}
-        handleFilterName = {this.handleFilterName}  
-      />
+
+      <Switch>
+
+        <Route 
+          exact path = "/"
+          render={() => (
+            <Home 
+              characters = {characters}
+              filterName = {filterName}
+              handleFilterName = {this.handleFilterName}  
+            />
+          )}
+        />
+
+        <Route 
+          path = "/character/:id"
+          render = {(routerProps) => (
+            <Details 
+              match = {routerProps.match}
+            />
+          )}
+        />
+
+      </Switch>
+
+      
     );
   }
 }
