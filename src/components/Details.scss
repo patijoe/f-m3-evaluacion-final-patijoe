@@ -1,0 +1,51 @@
+.card__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+.newChar__card {
+  display: flex;
+  width: 600px;
+  margin: 200px 0 30px;
+  border: 2px solid orange;
+  border-radius: 4px;
+  background-color: orange;
+}
+
+
+.newChar__img{
+  height: 300px;
+  width: 230px;
+  background-size: cover;
+  background-position: center;
+}
+
+.newChar__info {
+  margin-left: 20px;
+  color: grayscale($color: #3d3939);
+  
+}
+
+.newChar__name {
+  font-size: 30px;
+}
+
+.info {
+  font-size: 12px;
+}
+
+.link__back {
+  text-decoration: none;
+  border: 2px dotted orange;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  line-height: 80px;
+  text-align: center;
+  color: orange;
+  
+
+}

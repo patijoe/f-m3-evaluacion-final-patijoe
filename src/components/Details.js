@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './Details.scss';
 
 class Details extends React.Component {
 
@@ -16,20 +17,23 @@ class Details extends React.Component {
     console.log('***', newChar);
 
     return(
-      <div>
+      <div className= "card__container">
         {newChar !== undefined 
           ? <div className="newChar__card">
-          <img src={newChar.image} alt={`imagen de ${newChar.name}`} className="newChar__img"/>
-          <h2 className="newChar__name">{newChar.name}</h2>
-          <h3 className="newChar__house">{`Casa: ${newChar.house}`}</h3>
-          <h3 className="newChar__yerOfBirth">{`Nacimiento: ${newChar.yearOfBirth}`}</h3>
-          <h3 className="newChar__patronus">{`Patronus: ${newChar.patronus}`}</h3>
-          <h3 className="newChar__alive">{newChar.alive===true ? 'Estado: VIVO' : 'CAPUT'}</h3>
-          <h3 className="newChar__varita">{`Material de la varita: ${newChar.wand.core}`}</h3>
-          </div>
+              <div className="newChar__img" style={{backgroundImage: `url(${newChar.image})`}}></div>
+              {/* <img src={newChar.image} alt={`imagen de ${newChar.name}`} className="newChar__img"/> */}
+              <div className="newChar__info">
+                <h2 className="newChar__name">{newChar.name}</h2>
+                <h3 className="info newChar__house">{`Casa: ${newChar.house}`}</h3>
+                <h3 className="info newChar__yerOfBirth">{`Nacimiento: ${newChar.yearOfBirth}`}</h3>
+                <h3 className="info newChar__patronus">{`Patronus: ${newChar.patronus}`}</h3>
+                <h3 className="info newChar__alive">{newChar.alive===true ? 'Estado: VIVO' : 'CAPUT'}</h3>
+                <h3 className="info newChar__varita">{`Material de la varita: ${newChar.wand.core}`}</h3>
+              </div>
+            </div>
           : <p className="advise">'No tengo la info selecionada'</p>
         }
-          <Link to="/">VOLVER</Link>
+          <Link to="/" className="link__back">VOLVER</Link>
      </div>
     );
   }
