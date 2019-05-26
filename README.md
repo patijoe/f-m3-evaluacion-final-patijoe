@@ -1,7 +1,7 @@
 Proyecto de evaluación final del módulo de React.
 
 Etapas:
-  * Listado de personajes con dagos como: nombre, foto y casa
+  * Listado de personajes con datos como: nombre, foto y casa
   * Filtrado de personajes por nombre. Busca tanto en mayúsculas como en minúsculas. 
   * Creación de componentes: Home, Details y filter
   * Detalles de personaje en el que se muestra: nombre, casa, nacimiento, patronus, estado y material de la varita.
