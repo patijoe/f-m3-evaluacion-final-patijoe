@@ -12,7 +12,6 @@ class Home extends React.Component {
     return(
 
       <div className="home">
-
         <Filter className="filter" handleFilterName={handleFilterName}/>
 
         <ul className="characters__list">
