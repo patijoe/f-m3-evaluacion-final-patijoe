@@ -17,6 +17,7 @@ class App extends React.Component {
 
     this.handleFilterName = this.handleFilterName.bind(this);
     this.handleResetFilter = this.handleResetFilter.bind(this);
+    this.handleSelectFav = this.handleSelectFav.bind(this);
   }
 
   componentDidMount() {
@@ -31,14 +32,12 @@ class App extends React.Component {
     petition()
     .then(data => {
       const newCharacters = data.map((item, index) => {
-        return {...item, id: index}
+        return {...item, id: index, favorite: false}
       });
 
-      
-
-    this.setState({
-      characters: newCharacters
-    })
+      this.setState({
+        characters: newCharacters
+      })
       
       console.log('**', newCharacters)
     })
@@ -60,8 +59,20 @@ class App extends React.Component {
     })
   }
 
-  forceUpdate() {
+  handleSelectFav(item) {
+    const newFavItem = item.favorite===false ? {...item, favorite: true} : {...item, favorite: false};
 
+    this.setState((prevState) => {
+
+      const newCharacters = prevState.characters.map(item => 
+        (item.id===newFavItem.id ? newFavItem : item)
+      );
+      
+      return({
+        characters: newCharacters
+      });
+    })
+    console.log('_^_', newFavItem);
   }
 
   render() {
@@ -79,6 +90,7 @@ class App extends React.Component {
               characters = {characters}
               filterName = {filterName}
               handleFilterName = {this.handleFilterName}  
+              handleSelectFav = {this.handleSelectFav}
             />
           )}
         />
