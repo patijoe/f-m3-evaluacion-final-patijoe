@@ -1,6 +1,6 @@
 import React from 'react';
 import './Filter.scss';
-import ReactPlayer from 'react-player';
+import PropTypes from 'prop-types';
 
 class Filter extends React.Component {
   render() {
@@ -18,5 +18,9 @@ class Filter extends React.Component {
 
     );
   }
+}
+
+Filter.propTypes = {
+  handleFilterName: PropTypes.func,
 }
 export default Filter;

@@ -2,6 +2,7 @@ import React from 'react';
 import Filter from './Filter';
 import {Link} from 'react-router-dom';
 import './Home.scss';
+import PropTypes from 'prop-types';
 
 class Home extends React.Component {
 
@@ -39,4 +40,9 @@ class Home extends React.Component {
   }
 }
 
+Home.propTypes = {
+  characters: PropTypes.array,
+  filterName: PropTypes.string, 
+  handleFilterName: PropTypes.func,
+}
 export default Home;

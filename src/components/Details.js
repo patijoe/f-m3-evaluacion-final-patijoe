@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Details.scss';
+import PropTypes from 'prop-types';
 
 class Details extends React.Component {
 
@@ -42,4 +43,7 @@ class Details extends React.Component {
   }
 }
 
+Details.propTypes = {
+  handleResetFilter: PropTypes.func,
+}
 export default Details;
