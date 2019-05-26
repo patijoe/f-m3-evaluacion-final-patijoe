@@ -13,7 +13,11 @@ class Home extends React.Component {
     return(
 
       <div className="home">
-        <Filter className="filter" handleFilterName={handleFilterName}/>
+        <Filter 
+          className="filter" 
+          handleFilterName={handleFilterName}
+          filterName={filterName}  
+        />
 
         <ul className="characters__list">
           {characters

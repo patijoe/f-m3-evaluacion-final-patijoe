@@ -21,6 +21,10 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchPetition();
+
+    this.setState ({
+      filterName: JSON.parse(localStorage.getItem('filterName')) || ''
+    })
   }
 
   fetchPetition() {
@@ -42,11 +46,12 @@ class App extends React.Component {
 
   handleFilterName(event){
     const valueName = event.currentTarget.value;
-    // const valueNameUpper = valueName.toUpperCase();
 
     this.setState ({
       filterName: valueName
-    })
+    },
+    () => localStorage.setItem('filterName', JSON.stringify(this.state.filterName))
+    )
   }
 
   handleResetFilter() {

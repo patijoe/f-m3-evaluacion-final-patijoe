@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class Filter extends React.Component {
   render() {
 
-    const {handleFilterName} = this.props;
+    const {handleFilterName, filterName} = this.props;
 
     return(
       <div className="filter">
@@ -13,7 +13,7 @@ class Filter extends React.Component {
           <div className="filter__img" style={{backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Harry_Potter_wordmark.svg)`}}></div>
           <p className="filter__title">Characters</p>
         </label>
-        <input id="filter_name" type="text" className="filter__name" onChange={handleFilterName} />
+        <input id="filter_name" type="text" className="filter__name" onChange={handleFilterName} value={filterName}/>
       </div>
 
     );
