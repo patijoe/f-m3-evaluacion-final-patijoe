@@ -1,6 +1,5 @@
 import React from 'react';
 import './Filter.scss';
-import ReactPlayer from 'react-player';
 
 class Filter extends React.Component {
   render() {

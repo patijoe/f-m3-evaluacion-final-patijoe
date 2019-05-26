@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Details.scss';
+import skull from '../images/Skull.svg';
 
 class Details extends React.Component {
 
@@ -27,7 +28,10 @@ class Details extends React.Component {
                 <h3 className="info newChar__house">{`Casa: ${newChar.house}`}</h3>
                 <h3 className="info newChar__yerOfBirth">{`Nacimiento: ${newChar.yearOfBirth}`}</h3>
                 <h3 className="info newChar__patronus">{`Patronus: ${newChar.patronus}`}</h3>
-                <h3 className="info newChar__alive">{newChar.alive===true ? 'Estado: VIVO' : 'CAPUT'}</h3>
+                {/* <h3 className="info newChar__alive">
+                  {newChar.alive===true ? 'Estado: VIVO' : <div className="newChar__img" style={{backgroundImage: `url(${newChar.image})`}} />
+                </h3> */}
+                <h3 className="info newChar__alive">{newChar.alive===true ? 'Estado: VIVO' : 'Estado: CAPUT'}</h3>
                 <h3 className="info newChar__varita">{`Material de la varita: ${newChar.wand.core}`}</h3>
               </div>
             </div>
