@@ -49,4 +49,5 @@ Home.propTypes = {
   filterName: PropTypes.string, 
   handleFilterName: PropTypes.func,
 }
+
 export default Home;
