@@ -8,7 +8,7 @@ class Home extends React.Component {
 
   render() {
 
-    const {characters, filterName, handleFilterName, handleSelectFav} = this.props;
+    const {characters, filterName, handleFilterName, handleSelectFav, favorites} = this.props;
 
     return(
 
@@ -23,11 +23,17 @@ class Home extends React.Component {
           {characters
           .filter(item => item.name.toUpperCase().includes(filterName.toUpperCase()))
           .map(item => {
+
+            if (favorites.includes(item.id)===true) {
+              console.log(item.id, item.name);
+            }
+
             return(
               <li 
                 className="user__item" 
                 key={item.id}
-                onClick={() => handleSelectFav(item)}>
+                onClick={handleSelectFav}
+                id={item.id}>
                   
                 <Link className="home__link" to={`/character/${item.id}`}>
                     <div className="img__container" style={{backgroundImage: `url(${item.image})`}}></div>

@@ -62,23 +62,28 @@ class App extends React.Component {
     })
   }
 
-  handleSelectFav(favObj) {
-    
-    this.setState((prevState) => {
-      const newFav = prevState.favorites.map(item =>
-        favObj.id!==item.id ? [...prevState.favorites, favObj] : [prevState.favorites]);
+  handleSelectFav(event) {
 
-        console.log('^^^', newFav);
+    const favId = event.currentTarget.id;
+
+    this.setState((prevState) => {
       
-        return({
-          favorites: newFav
-        })
-    })
+      const newFav = [...prevState.favorites];
+      if(newFav.includes(favId) === true) {
+        newFav.splice( favId, 1 );
+      } else {
+        newFav.push(favId);
+      }
+      return {
+        favorites: newFav
+      };
+
+    });
   }
 
   render() {
 
-    const {characters, filterName} = this.state;
+    const {characters, filterName, favorites} = this.state;
 
     return (
 
@@ -90,6 +95,7 @@ class App extends React.Component {
             <Home 
               characters = {characters}
               filterName = {filterName}
+              favorites={favorites}
               handleFilterName = {this.handleFilterName}  
               handleSelectFav = {this.handleSelectFav}
             />
