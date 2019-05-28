@@ -12,12 +12,13 @@ class App extends React.Component {
 
     this.state={
       characters:[],
-      filterName: ''
+      filterName: '',
+      filter:''
     }
 
     this.handleFilterName = this.handleFilterName.bind(this);
     this.handleResetFilter = this.handleResetFilter.bind(this);
-    this.handleSelectFav = this.handleSelectFav.bind(this);
+    this.handleFilterHair = this.handleFilterHair.bind(this);
   }
 
   componentDidMount() {
@@ -53,27 +54,21 @@ class App extends React.Component {
     )
   }
 
+  handleFilterHair(event) {
+    const valueHair = event.currentTarget.value;
+    
+
+    this.setState({
+      filter: valueHair
+    })
+  }
+
   handleResetFilter() {
     this.setState({
       filterName: ''
     })
   }
 
-  handleSelectFav(item) {
-    const newFavItem = item.favorite===false ? {...item, favorite: true} : {...item, favorite: false};
-
-    this.setState((prevState) => {
-
-      const newCharacters = prevState.characters.map(item => 
-        (item.id===newFavItem.id ? newFavItem : item)
-      );
-      
-      return({
-        characters: newCharacters
-      });
-    })
-    console.log('_^_', newFavItem);
-  }
 
   render() {
 
@@ -89,8 +84,8 @@ class App extends React.Component {
             <Home 
               characters = {characters}
               filterName = {filterName}
-              handleFilterName = {this.handleFilterName}  
-              handleSelectFav = {this.handleSelectFav}
+              handleFilterName = {this.handleFilterName}
+              handleFilterHair={this.handleFilterHair}
             />
           )}
         />
@@ -107,7 +102,6 @@ class App extends React.Component {
         />
 
       </Switch>
-
       
     );
   }

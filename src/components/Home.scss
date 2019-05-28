@@ -15,7 +15,7 @@
 
 .user__item {
   height: 435px;
-  width: 210px;
+  width: 250px;
   margin: 30px;
   border: 10px solid grey;
   border-radius: 10px;
@@ -24,7 +24,7 @@
 
 .img__container {
   height: 300px;
-  width: 210px;
+  width: 250px;
   background-size: cover;
   background-position: center;
 }
@@ -38,11 +38,15 @@
 }
 
 .item__name {
-padding-left: 15px;
 color: gray;
 }
 
 .item__house {
-  padding: 0 0 15 px15px;
   color: gray;
+  border-width: 0;
+}
+
+.item__house {
+  width: 50px;
+  height: 50px;
 }

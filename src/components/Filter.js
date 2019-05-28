@@ -23,4 +23,5 @@ class Filter extends React.Component {
 Filter.propTypes = {
   handleFilterName: PropTypes.func,
 }
+
 export default Filter;
