@@ -8,7 +8,7 @@ class Home extends React.Component {
 
   render() {
 
-    const {characters, filterName, handleFilterName} = this.props;
+    const {characters, filterName, filterWand, handleFilterName, handleFilterWand} = this.props;
     const house = {
       Gryffindor: 'https://vignette.wikia.nocookie.net/es.harrypotter/images/a/a3/Gryffindor_Pottermore.png/revision/latest?cb=20140922195249',
       Slytherin: 'https://vignette.wikia.nocookie.net/es.harrypotter/images/6/69/Slytherin_Pottermore.png/revision/latest?cb=20141001130915',
@@ -26,9 +26,16 @@ class Home extends React.Component {
           filterName={filterName}  
         />
 
+        <label htmlFor="wand">Haz tu seleción de tamaño:</label>
+        <input 
+          type="number"
+          onChange={handleFilterWand}  
+        />
+
         <ul className="characters__list">
           {characters
           .filter(item => item.name.toUpperCase().includes(filterName.toUpperCase()))
+          .filter(item => item.wand.length >= parseInt(filterWand))
           .map(item => {
             return(
               <li className="user__item" key={item.id}>

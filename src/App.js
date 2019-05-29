@@ -12,11 +12,13 @@ class App extends React.Component {
 
     this.state={
       characters:[],
-      filterName: ''
+      filterName: '',
+      filterWand: 0
     }
 
     this.handleFilterName = this.handleFilterName.bind(this);
     this.handleResetFilter = this.handleResetFilter.bind(this);
+    this.handleFilterWand = this.handleFilterWand.bind(this);
   }
 
   componentDidMount() {
@@ -60,13 +62,20 @@ class App extends React.Component {
     })
   }
 
-  forceUpdate() {
+  handleFilterWand (event) {
+    let valueWand = event.currentTarget.value;
+    if( valueWand==='') {
+      valueWand=0;
+    }
 
+    this.setState ({
+      filterWand: valueWand
+    })
   }
 
   render() {
 
-    const {characters, filterName} = this.state;
+    const {characters, filterName, filterWand} = this.state;
 
     return (
 
@@ -78,7 +87,9 @@ class App extends React.Component {
             <Home 
               characters = {characters}
               filterName = {filterName}
+              filterWand = {filterWand}
               handleFilterName = {this.handleFilterName}  
+              handleFilterWand = {this.handleFilterWand}
             />
           )}
         />
